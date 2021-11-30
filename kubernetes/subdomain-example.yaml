@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: subdomain-example
+  annotations:
+spec:
+  rules:
+    - host: analytics.myapp.com
+      http:
+        paths:
+            backend:
+              serviceName: analytics-service
+              servicePort: 3000
+    - host: shopping.myapp.com
+      http:
+        paths:
+            backend:
+              serviceName: shopping-service
+              servivePort: 8080
